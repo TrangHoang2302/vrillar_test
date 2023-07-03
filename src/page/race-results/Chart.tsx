@@ -86,7 +86,7 @@ const App: React.FC<AppProp> = props => {
     });
 
     // map dữ liệu result của từng data trong danh sách tìm được thành mảng mới
-    const data: any[] = dataFind.flatMap((i: DataContent) => i.result).slice(0,3); // chỉ lấy 3 giá trị đầu tránh tràn UI
+    const data: any[] = dataFind.flatMap((i: DataContent) => i.result || []).slice(0,3); // chỉ lấy 3 giá trị đầu tránh tràn UI
 
     const maxVal = useMemo(() => Math.max(...data.map(o => o.Pos)), [data]);
     const scaleValue = useMemo(() => d3.scaleLinear().domain([0, maxVal]).range([1, 3]), [maxVal]);

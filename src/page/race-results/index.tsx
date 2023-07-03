@@ -44,7 +44,7 @@ const style = {
 const RaceResult: React.FC = () => {
     const [dataContent, setDataContent] = useState<any[]>([]);
     const [dataResult, setDataResult] = useState<any[]>([]);
-    const dataYear = [...Array(3)].map((_, i) => (new Date().getFullYear() - i).toString());
+    const dataYear = [...Array(5)].map((_, i) => (new Date().getFullYear() - i).toString());
     const dataType: DataType[] = [
         {
             title: "Races",
@@ -91,8 +91,8 @@ const RaceResult: React.FC = () => {
         let data = result[yearSelectd][typeSelectd];
         // Nếu contentSelected === "" thì lấy hết data của type đó.
         data = contentSelected
-            ? data.find((i: DataContent) => i.value === contentSelected)?.result
-            : data.flatMap((i: DataContent) => i.result);
+            ? data.find((i: DataContent) => i.value === contentSelected)?.result || []
+            : data.flatMap((i: DataContent) => i.result || []);
         setDataResult(data);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [contentSelected]);
@@ -212,7 +212,8 @@ const RaceResult: React.FC = () => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {dataResult.map((item, index) => (
+                                    {dataResult.map((item, index) => {
+                                        return(
                                         <TableRow
                                             key={index}
                                             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -234,7 +235,7 @@ const RaceResult: React.FC = () => {
                                                 )}
                                             </TableCell>
                                         </TableRow>
-                                    ))}
+                                    )})}
                                 </TableBody>
                             </Table>
                         </TableContainer>
