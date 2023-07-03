@@ -3,7 +3,7 @@
     src: src/data/data/crawl-data.tsx
 ********************************************/
 
-const dataYear = [...Array(3)].map((_, i) => new Date().getFullYear() - i);
+const dataYear = [...Array(5)].map((_, i) => new Date().getFullYear() - i);
 const dataType = [
     {
         title: "Races",
