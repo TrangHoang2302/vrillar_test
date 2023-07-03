@@ -15,7 +15,7 @@ const dataType = [
     },
     {
         title: "Teams",
-        value: "team", 
+        value: "team",
     },
     {
         title: "DHL FASTEST LAP AWARD",
@@ -57,7 +57,9 @@ const crawlData = () => {
                 contents.querySelectorAll(".resultsarchive-filter-container > div:nth-child(3) a")
             ).map(i => ({ title: i.querySelector("span").innerHTML, value: i.dataset.value }));
             data2[year][type.value] = contents;
-            contents.forEach(async (content, index) => {
+            for(const index in contents){
+                const content = contents[index];
+            // contents.forEach(async (content, index) => {
                 data2[year][type.value][content.value] = {};
                 let result = await Fetch(
                     `https://www.formula1.com/en/results.html/${year}}/${type.value}/${content.value}.html`
@@ -68,7 +70,7 @@ const crawlData = () => {
                 const row = Array.from(result.querySelectorAll("table.resultsarchive-table>tbody>tr")).map(i =>
                     Array.from(i.querySelectorAll("td")).map(i => i?.innerText.replace(/  +/g, " ").trim())
                 );
-                converData = [];
+                const converData = [];
                 row.forEach((ct, index) => {
                     title.forEach((key, i) => {
                         let id ='';
@@ -82,18 +84,15 @@ const crawlData = () => {
                         ])
                         if(field.get(type.value).split('|').includes(key)){
                              id=ct[i]?.replace(/[^a-zA-Z0-9]/g,'') || '';
-                             fieldId=key;
                         }
                         return (converData[index] = { ...converData[index], [key]: ct[i],  ...id ? {id: id, fieldId: key} : {} });
-                    
+
                     });
                 });
                 data2[year][type.value][index]["result"] = converData;
-            });
+            };
         });
     });
 };
 
 crawlData();
-
-console.log(data2);
