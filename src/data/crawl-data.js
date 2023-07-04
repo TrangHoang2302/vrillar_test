@@ -96,3 +96,8 @@ const crawlData = () => {
 };
 
 crawlData();
+
+setTimeout(()=>{
+    console.log(JSON.stringify(data2));
+}, 10000)
+
