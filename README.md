@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Race Result - ReactJS Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A brief description of the project and its goals.
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+- Node.js v16.20.1
+- npm v8.19.4
 
+## Installation
+
+1. Clone this repository:
+### `git clone https://github.com/TrangHoang2302/vrillar_test.git`
+
+
+2. Navigate to the project directory:
+### `cd vrillar_test`
+
+3. Install the dependencies:
+### `npm install`
+
+## Usage
+1. Run the application in development mode:
 ### `npm start`
+The application will run in preview mode. You can view it in your browser at http://localhost:3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
+2. Build the final production-ready version:
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The compiled files will be saved in the build/ directory. You can deploy it to a production environment.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Crawling Data
+To describe the process of crawling data using a script running on the console of the Chrome browser, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open the Chrome browser and navigate to the website `https://www.formula1.com/en/results.html`.
 
-### `npm run eject`
+2. Right-click on the webpage and select "Inspect" or press the Ctrl+Shift+I (Windows/Linux) or Command+Option+I (Mac) key combination to open the Developer Tools.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Find the path to the `crawl-data.js` file in the source. Typically, the path will look like `src/data/crawl-data.js`. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. In the "Console" tab of the Developer Tools, paste the code you copied from the `crawl-data.js` file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Press Enter to execute the code and observe the results obtained from the data crawling process in the console and view them using the online JSON editor tool.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Main Libraries and Technologies
+- Material-UI
+- ThreeJS
+- Typescript
+- ReactJS
 
-## Learn More
+## Contributions
+If you would like to contribute to the project, you can follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork the project
+2. Create a new branch (git checkout -b feature/fooBar)
+3. Commit your changes (git commit -am 'Add some fooBar')
+4. Push your branch to the repository (git push origin feature/fooBar)
+5. Create a new pull request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
+Trang Hoang - tranghoang1001@gmail.com
